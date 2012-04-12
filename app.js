@@ -36,11 +36,11 @@ http.createServer(function (ureq, ures) {
 					package["date"] = date;
 
 					var splitTemp1 = lines[1].split(' ');
-					var temp1 = splitTemp1[8];
+					var temp1 = parseInt(splitTemp1[8]);
 					package["processor"] = temp1;
 
 					var splitTemp2 = lines[2].split(' ');
-					var temp2 = splitTemp2[8];
+					var temp2 = parseInt(splitTemp2[8]);
 					package["inside"] = temp2;
 
 					response.push(package);
