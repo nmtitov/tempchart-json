@@ -32,24 +32,23 @@ http.createServer(function (ureq, ures) {
 					var date = new Date();
 					date.setTime(Date.parse(stringDate));
 
-					var package = {};
-					package["date"] = date;
+					var package = [];
+					package.push(date);
 
 					var splitTemp1 = lines[1].split(' ');
 					var temp1 = parseInt(splitTemp1[8]);
-					package["processor"] = temp1;
+					package.push(temp1);
 
 					var splitTemp2 = lines[2].split(' ');
 					var temp2 = parseInt(splitTemp2[8]);
-					package["inside"] = temp2;
+					package.push(temp2);
 
 					response.push(package);
 				};
 			};
 
-			ures.writeHead(200, {'Content-Type': 'text/json'});
-			ures.write(JSON.stringify(response));
-			ures.end('\n');
+			ures.writeHead(200, {'Content-Type': 'text/plain'});
+			ures.end("_testcb('" + JSON.stringify(response) + "')");
 
 		});
 	})
